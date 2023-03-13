@@ -146,15 +146,15 @@ giscus:
   lang: en
 
 # Disqus comments (DEPRECATED)
-disqus_shortname: al-folio # put your disqus shortname
+# disqus_shortname: al-folio # put your disqus shortname
 # https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 # External sources.
 # If you have blog posts published on medium.com or other exteranl sources,
 # you can display them in your blog by adding a link to the RSS feed.
 external_sources:
-  - name: wordpress
-    rss_url: https://pgolub.wordpress.com/category/postgresql/feed/
+#   - name: wordpress
+#     rss_url: https://pgolub.wordpress.com/category/postgresql/feed/
 #   - name: cybertec
 #     rss_url: https://www.cybertec-postgresql.com/en/author/cybertec_golub/feed/    
 
