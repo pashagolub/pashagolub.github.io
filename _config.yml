@@ -199,10 +199,10 @@ disqus_shortname: al-folio # put your disqus shortname
 # you can display them in your blog by adding a link to the RSS feed.
 # Optional: Set default categories and tags for posts from each source.
 external_sources:
-  - name: pgolub.wordpress.com
+  - name: wordpress
     rss_url: https://pgolub.wordpress.com/category/postgresql/feed/
-  - name: cybertec
-    rss_url: https://www.cybertec-postgresql.com/en/author/cybertec_golub/feed/    
+#   - name: cybertec
+#     rss_url: https://www.cybertec-postgresql.com/en/author/cybertec_golub/feed/    
 
 # -----------------------------------------------------------------------------
 # Collections
@@ -215,6 +215,10 @@ collections:
     defaults:
       layout: post
     output: true
+    permalink: /news/:path/
+  projects:
+    output: false
+    permalink: /projects/:path/
 
 
 # -----------------------------------------------------------------------------
@@ -335,8 +339,8 @@ display_tags: ['formatting', 'images', 'links', 'math', 'code'] # this tags will
 
 scholar:
 
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: 
+  first_name: 
 
   style: apa
   locale: en
@@ -359,8 +363,8 @@ scholar:
   query: "@*"
 
 badges: # Display different badges for your pulications
-  altmetric_badge: true # Altmetric badge (https://www.altmetric.com/products/altmetric-badges/)
-  dimensions_badge: true # Dimensions badge (https://badge.dimensions.ai/)
+  altmetric_badge: false # Altmetric badge (https://www.altmetric.com/products/altmetric-badges/)
+  dimensions_badge: false # Dimensions badge (https://badge.dimensions.ai/)
 
 # Filter out certain bibtex entry keywords used internally from the bib output
 filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, html, pdf, selected, supp, blog, code, poster, slides, website, preview, altmetric]
