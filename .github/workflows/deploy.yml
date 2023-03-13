@@ -1,4 +1,4 @@
-name: Deploy site
+name: deploy
 
 on:
   push:
@@ -62,7 +62,6 @@ permissions:
 
 jobs:
   deploy:
-    # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
