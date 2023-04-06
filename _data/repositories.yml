@@ -1,12 +1,9 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - pashagolub
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - pashagolub/pgxmock
+  - cybertec-postgresql/pg_timetable
+  - cybertec-postgresql/pgwatch2
+  - cybertec-postgresql/vip-manager
+  - pashagolub/postgresdac
