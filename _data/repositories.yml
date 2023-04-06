@@ -1,9 +1,0 @@
-github_users:
-  - pashagolub
-
-github_repos:
-  - pashagolub/pgxmock
-  - cybertec-postgresql/pg_timetable
-  - cybertec-postgresql/pgwatch2
-  - cybertec-postgresql/vip-manager
-  - pashagolub/postgresdac
