@@ -8,7 +8,7 @@ middle_name:
 last_name: Golub
 email: pavlo.golub@gmail.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  A personal page with the blog and CV.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -41,6 +41,10 @@ repo_theme_dark: dark           # https://github.com/anuraghazra/github-readme-s
 # Take a look to https://github.com/jekyll/jekyll-feed for more customization
 
 rss_icon: true
+feed:
+  tags:
+    only:
+      - personal
 
 # -----------------------------------------------------------------------------
 # Layout
@@ -152,10 +156,10 @@ related_blog_posts:
 # If you have blog posts published on medium.com or other exteranl sources,
 # you can display them in your blog by adding a link to the RSS feed.
 external_sources:
-#   - name: wordpress
-#     rss_url: https://pgolub.wordpress.com/category/postgresql/feed/
-#   - name: cybertec
-#     rss_url: https://www.cybertec-postgresql.com/en/author/cybertec_golub/feed/    
+  - name: wordpress
+    rss_url: https://pgolub.wordpress.com/category/postgresql/feed/
+  - name: cybertec
+    rss_url: https://www.cybertec-postgresql.com/en/author/cybertec_golub/feed/    
 
 # -----------------------------------------------------------------------------
 # Collections
