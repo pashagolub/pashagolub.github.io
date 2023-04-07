@@ -162,8 +162,8 @@ related_blog_posts:
 external_sources:
   - name: wordpress
     rss_url: https://pgolub.wordpress.com/category/postgresql/feed/
-  - name: cybertec
-    rss_url: https://www.cybertec-postgresql.com/en/author/cybertec_golub/feed/    
+  # - name: cybertec
+  #   rss_url: https://www.cybertec-postgresql.com/en/author/cybertec_golub/feed/    
 
 # -----------------------------------------------------------------------------
 # Collections
@@ -246,7 +246,7 @@ jekyll-minifier:
 jekyll-archives:
 
 
-display_tags: ['formatting', 'images', 'links', 'math', 'code'] # this tags will be dispalyed on the front page of your blog
+display_tags: ['postgresql', 'what''s new', 'scheduler', 'video', 'code'] # this tags will be dispalyed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
