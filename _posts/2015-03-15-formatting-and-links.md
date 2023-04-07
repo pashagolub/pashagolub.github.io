@@ -1,30 +1,14 @@
 ---
 layout: post
-title:  a post with formatting and links
+title:  hello world
 date:   2015-03-15 16:40:16
-description: march & april, looking forward to summer
-tags: formatting links personal
-categories: sample-posts
+description: Welcome to my new blog!
+tags: personal
 ---
-Jean shorts raw denim Vice normcore, art party High Life PBR skateboard stumptown vinyl kitsch. Four loko meh 8-bit, tousled banh mi tilde forage Schlitz dreamcatcher twee 3 wolf moon. Chambray asymmetrical paleo salvia, sartorial umami four loko master cleanse drinking vinegar brunch. <a href="https://www.pinterest.com">Pinterest</a> DIY authentic Schlitz, hoodie Intelligentsia butcher trust fund brunch shabby chic Kickstarter forage flexitarian. Direct trade <a href="https://en.wikipedia.org/wiki/Cold-pressed_juice">cold-pressed</a> meggings stumptown plaid, pop-up taxidermy. Hoodie XOXO fingerstache scenester Echo Park. Plaid ugh Wes Anderson, freegan pug selvage fanny pack leggings pickled food truck DIY irony Banksy.
+Welcome to my new blog! My name is [Pavlo Golub](https://postgresql.life/post/pavlo_golub/), and I have been working with PostgreSQL since 2002 when the version was 7.3. As a PostgreSQL developer and consultant, I am excited to share my insights and experiences with you through this personal blog that is not connected with my current or future employer.
 
-#### Hipster list
-<ul>
-    <li>brunch</li>
-    <li>fixie</li>
-    <li>raybans</li>
-    <li>messenger bag</li>
-</ul>
+PostgreSQL is an open-source relational database management system that is widely used in enterprise and web applications. It is known for its robustness, reliability, and scalability, making it an excellent choice for developers of all levels. Over the years, I have seen firsthand how PostgreSQL can transform data management and make applications more efficient.
 
-Hoodie Thundercats retro, tote bag 8-bit Godard craft beer gastropub. Truffaut Tumblr taxidermy, raw denim Kickstarter sartorial dreamcatcher. Quinoa chambray slow-carb salvia readymade, bicycle rights 90's yr typewriter selfies letterpress cardigan vegan.
+This blog, which is hosted on Github Pages and built with Jekyll, will be dedicated to sharing my knowledge and experience with PostgreSQL. Whether you are a beginner looking for basic tutorials or an experienced developer seeking advanced techniques, this blog will cover a range of topics that will be useful to you. Additionally, I will share tips and tricks that I have learned throughout my career and discuss best practices for using PostgreSQL effectively.
 
-<hr>
-
-Pug heirloom High Life vinyl swag, single-origin coffee four dollar toast taxidermy reprehenderit fap distillery master cleanse locavore. Est anim sapiente leggings Brooklyn ea. Thundercats locavore excepteur veniam eiusmod. Raw denim Truffaut Schlitz, migas sapiente Portland VHS twee Bushwick Marfa typewriter retro id keytar.
-
-<blockquote>
-    We do not grow absolutely, chronologically. We grow sometimes in one dimension, and not in another, unevenly. We grow partially. We are relative. We are mature in one realm, childish in another.
-    —Anais Nin
-</blockquote>
-
-Fap aliqua qui, scenester pug Echo Park polaroid irony shabby chic ex cardigan church-key Odd Future accusamus. Blog stumptown sartorial squid, gastropub duis aesthetic Truffaut vero. Pinterest tilde twee, odio mumblecore jean shorts lumbersexual.
+My ultimate goal is to create a space where developers can come together to learn about PostgreSQL and how it can benefit their projects. I am thrilled to begin this journey with you and look forward to sharing my knowledge and insights with you.
