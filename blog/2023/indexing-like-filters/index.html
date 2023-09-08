@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>postgresql | Pavlo pg Golub</title>
+    <title>Indexing `LIKE` Filters | Pavlo pg Golub</title>
     <meta name="author" content="Pavlo pg Golub">
     <meta name="description" content="A personal page with the blog and CV.
 ">
@@ -34,7 +34,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%95%8A%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://pashagolub.github.io/blog/tag/postgresql/">
+    <link rel="canonical" href="https://pashagolub.github.io/blog/2023/indexing-like-filters/">
     
     <!-- Dark Mode -->
     
@@ -108,78 +108,76 @@
 
     <!-- Content -->
     <div class="container mt-5">
-      <div class="post">
+      <!-- _layouts/post.html -->
+
+<div class="post">
 
   <header class="post-header">
-    <h1 class="post-title"> <i class="fas fa-hashtag fa-sm"></i> postgresql </h1>
-    <p class="post-description"> an archive of posts with this tag </p>
+    <h1 class="post-title">Indexing `LIKE` Filters</h1>
+    <p class="post-meta">September 8, 2023</p>
+    <p class="post-tags">
+      <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
+        ·  
+        <a href="/blog/tag/index">
+          <i class="fas fa-hashtag fa-sm"></i> index</a>  
+          <a href="/blog/tag/fts">
+          <i class="fas fa-hashtag fa-sm"></i> FTS</a>  
+          <a href="/blog/tag/tips-and-tricks">
+          <i class="fas fa-hashtag fa-sm"></i> tips and tricks</a>  
+          <a href="/blog/tag/postgresql">
+          <i class="fas fa-hashtag fa-sm"></i> postgresql</a>  
+          <a href="/blog/tag/personal">
+          <i class="fas fa-hashtag fa-sm"></i> personal</a>  
+          
+
+    </p>
   </header>
 
-  <article>
-    <div class="table-responsive">
-      <table class="table table-sm table-borderless">
-        
-        <tr>
-          <th scope="row">Sep 8, 2023</th>
-          <td>
-              <a class="post-link" href="/blog/2023/indexing-like-filters/">Indexing `LIKE` Filters</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Jun 14, 2023</th>
-          <td>
-              <a class="post-link" href="/blog/2023/PGDay-Belgium-2023-reflections/">PGDay Belgium 2023 reflections</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Apr 25, 2023</th>
-          <td>
-              <a class="post-link" href="/blog/2023/lz4-zstd-pg_dump-compression/">LZ4 and ZSTD pg_dump compression in PostgreSQL 16</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Apr 18, 2023</th>
-          <td>
-              <a class="post-link" href="/blog/2023/numeric-underscores/">Underscores in numeric constants in PostgreSQL 16</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Apr 11, 2023</th>
-          <td>
-              <a class="post-link" href="/blog/2023/parallel-agregate/">Parallel aggregate in PostgreSQL 16 for better performance</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Mar 15, 2023</th>
-          <td>
-              <a class="post-link" href="/blog/2023/pg_timetable_v5.3/">pg_timetable v5.3 is out!</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Feb 15, 2023</th>
-          <td>
-              <a class="post-link" href="/blog/2023/go-postgresql-fosdem-talk/">Go &amp; PostgreSQL: FOSDEM 2023 talk
-</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <th scope="row">Jan 17, 2023</th>
-          <td>
-              <a class="post-link" href="/blog/2023/usql-universal-psql/">usql: universal psql?
-</a>
-          </td>
-        </tr>
-      
-      </table>
-    </div>
+  <article class="post-content">
+    <p><a href="https://postgresql.life/post/markus_winand/" rel="external nofollow noopener" target="_blank">Markus Winand</a> wrote a great article about why and how users should use <code class="language-plaintext highlighter-rouge">LIKE</code> operator in their workloads. It covers different approaches like Full-Text Search, Partial Index, Trigram Index, Materialized View, and query optimization. In summary, the talk primarily addresses challenges related to optimizing queries with leading wildcard LIKE searches and provides various strategies and techniques to overcome these challenges and improve database query performance.</p>
+
   </article>
+
+
+  
+    
+    <br>
+    <hr>
+    <br>
+    <ul class="list-disc pl-8"></ul>
+
+    <!-- Adds related posts to the end of an article -->
+    <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
+    <p class="mb-2">Here are some more articles you might like to read next:</p>
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2017/rdbms-on-stack-overflow-trends/">RDBMS on Stack Overflow trends</a>
+  </li>
+
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2017/chm-manual-for-postgresql-96/">CHM-manual for PostgreSQL 9.6</a>
+  </li>
+
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2017/serial-identity-mix/">Serial-Identity mix</a>
+  </li>
+
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2017/hackers-and-bugs-lists-migration-and-gmails-filters/">Hackers and Bugs lists migration and GMail’s filters</a>
+  </li>
+
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2017/some-warsaw-pgconfeu-photos/">Some Warsaw pgconf.eu photos</a>
+  </li>
 
 </div>
 
