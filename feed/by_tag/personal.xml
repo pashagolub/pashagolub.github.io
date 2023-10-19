@@ -1,5 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://pashagolub.github.io/feed/by_tag/personal.xml" rel="self" type="application/atom+xml" /><link href="https://pashagolub.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-21T11:55:08+00:00</updated><id>https://pashagolub.github.io/feed/by_tag/personal.xml</id><title type="html">blank</title><subtitle>A personal page with the blog and CV.
-</subtitle><entry><title type="html">PostgresUS Diversity Scholarship to attend PGConf NYC</title><link href="https://pashagolub.github.io/blog/2023/postgres-diversity-scolarship/" rel="alternate" type="text/html" title="PostgresUS Diversity Scholarship to attend PGConf NYC" /><published>2023-09-21T10:10:19+00:00</published><updated>2023-09-21T10:10:19+00:00</updated><id>https://pashagolub.github.io/blog/2023/postgres-diversity-scolarship</id><content type="html" xml:base="https://pashagolub.github.io/blog/2023/postgres-diversity-scolarship/"><![CDATA[<p>I want to share the information published by <a href="http://chelseadole.com/about/">Chealse Dole</a> in the community <a href="https://postgresteam.slack.com/archives/CA3GJ7HF1/p1695263405724359">#pglsql-women</a> Slack channel for a wider audience:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://pashagolub.github.io/feed/by_tag/personal.xml" rel="self" type="application/atom+xml" /><link href="https://pashagolub.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-10-19T14:17:33+00:00</updated><id>https://pashagolub.github.io/feed/by_tag/personal.xml</id><title type="html">blank</title><subtitle>A personal page with the blog and CV.
+</subtitle><entry><title type="html">pgxmock v3.1 is out! Mocking named parameters for PostgreSQL in Go!</title><link href="https://pashagolub.github.io/blog/2023/pgxmock-v3.1-named-params/" rel="alternate" type="text/html" title="pgxmock v3.1 is out! Mocking named parameters for PostgreSQL in Go!" /><published>2023-10-19T12:10:19+00:00</published><updated>2023-10-19T12:10:19+00:00</updated><id>https://pashagolub.github.io/blog/2023/pgxmock-v3.1-named-params</id><content type="html" xml:base="https://pashagolub.github.io/blog/2023/pgxmock-v3.1-named-params/"><![CDATA[<p>I am excited to announce the update of <strong><a href="https://github.com/pashagolub/pgxmock/releases/tag/v3.1.0">pgxmock v3.1</a></strong>! This update enables <code class="language-plaintext highlighter-rouge">pgx.QueryRewriter</code> interface support for mocking named parameters in your unit tests.</p>
+
+<h2 id="named-parameters-in-postgres">Named parameters? In Postgres?</h2>
+
+<p>The actual PostgreSQL <code class="language-plaintext highlighter-rouge">$1</code> style placeholders are not that bad when only a few exist. But it rapidly gets challenging to manage when there are many of them, especially when specific arguments are used multiple times.</p>
+
+<p>If you want to know how to use named parameters in your application with <strong>pgx</strong> and <strong>PostgreSQL</strong>, check the <a href="https://pkg.go.dev/github.com/jackc/pgx/v5#NamedArgs">documentation</a>.</p>
+
+<p>Here’s a quick example of how to use named parameters in your code:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">conn</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"select * from widgets where foo = @foo and bar = @bar"</span><span class="p">,</span> 
+    <span class="n">pgx</span><span class="o">.</span><span class="n">NamedArgs</span><span class="p">{</span><span class="s">"foo"</span><span class="o">:</span> <span class="m">1</span><span class="p">,</span> <span class="s">"bar"</span><span class="o">:</span> <span class="m">2</span><span class="p">})</span>
+</code></pre></div></div>
+<p>which is effectively the same as</p>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">conn</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"select * from widgets where foo = $1 and bar = $2"</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="introducing-withrewrittensql-to-pgxmock-expectations">Introducing <code class="language-plaintext highlighter-rouge">WithRewrittenSQL</code> to pgxmock expectations</h3>
+
+<p>The machinery of the <code class="language-plaintext highlighter-rouge">pgx.QueryRewriter</code> interface is supposed to rewrite the initial query and apply parameter values. Since in a real-life application, we may use custom implementations, not only provided by <code class="language-plaintext highlighter-rouge">pgx.NamedArgs</code>, we want to be able to check the final query. Exactly for this matter expectations <a href="https://pkg.go.dev/github.com/pashagolub/pgxmock/v3#ExpectedExec">ExpectedExec</a> and <a href="https://pkg.go.dev/github.com/pashagolub/pgxmock/v3#ExpectedQuery">ExpectedQuery</a> provide <code class="language-plaintext highlighter-rouge">WithRewrittenSQL</code> method.</p>
+
+<p>Example:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">TestInsertUser</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span><span class="n">testing</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">Parallel</span><span class="p">()</span>
+    <span class="n">mock</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">NewConn</span><span class="p">(</span><span class="n">QueryMatcherOption</span><span class="p">(</span><span class="n">QueryMatcherEqual</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"an error '%s' was not expected when opening a stub database connection"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">mock</span><span class="o">.</span><span class="n">ExpectExec</span><span class="p">(</span><span class="s">"INSERT INTO users(name, created_at) VALUES (@name, @time)"</span><span class="p">)</span><span class="o">.</span>
+        <span class="n">WithArgs</span><span class="p">(</span><span class="n">pgx</span><span class="o">.</span><span class="n">NamedArgs</span><span class="p">{</span><span class="s">"name"</span><span class="o">:</span> <span class="s">"john"</span><span class="p">,</span> <span class="s">"time"</span><span class="o">:</span> <span class="n">pgxmock</span><span class="o">.</span><span class="n">AnyTime</span><span class="p">{}})</span><span class="o">.</span>
+<span class="c">// or   WithArgs(john", pgxmock.AnyTime{}).</span>
+        <span class="n">WithRewrittenSQL</span><span class="p">(</span><span class="s">`INSERT INTO users(name, created_at) VALUES ($1, $2)`</span><span class="p">)</span><span class="o">.</span>
+        <span class="n">WillReturnResult</span><span class="p">(</span><span class="n">NewResult</span><span class="p">(</span><span class="s">"INSERT"</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">mock</span><span class="o">.</span><span class="n">Exec</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">Background</span><span class="p">(),</span>
+        <span class="s">"INSERT INTO users(name, created_at) VALUES (@name, @time)"</span><span class="p">,</span>
+        <span class="n">pgx</span><span class="o">.</span><span class="n">NamedArgs</span><span class="p">{</span><span class="s">"name"</span><span class="o">:</span> <span class="s">"john"</span><span class="p">,</span> <span class="s">"time"</span><span class="o">:</span> <span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()},</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"error '%s' was not expected, while inserting a row"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">mock</span><span class="o">.</span><span class="n">ExpectationsWereMet</span><span class="p">();</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"there were unfulfilled expectations: %s"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>As you can see in the example, the <code class="language-plaintext highlighter-rouge">WithArgs</code> method now supports the list of plain values and the <code class="language-plaintext highlighter-rouge">pgx.QueryRewriter</code> interface as the first argument.</p>
+
+<h2 id="ready-to-upgrade">Ready to Upgrade?</h2>
+
+<p>I motivate all users to upgrade to <strong>pgxmock v3.1</strong> to take advantage of these exciting enhancements and improvements. Whether you’re a long-time user or just starting with pgxmock, these changes will advance your PostgreSQL mocking experience.</p>
+
+<p>To get started with pgxmock v3.1, check your import statement:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="s">"github.com/pashagolub/pgxmock/v3"</span>
+</code></pre></div></div>
+
+<p>and/or run</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go get <span class="nt">-u</span> github.com/pashagolub/pgxmock/v3
+</code></pre></div></div>
+
+<p>Thank you for your continued support and feedback. I look forward to seeing how <strong>pgxmock v3.1</strong> empowers your PostgreSQL database testing. If you have any questions or need assistance with the upgrade, please contact me on <a href="https://github.com/pashagolub/pgxmock">GitHub</a>.</p>
+
+<p>Happy mocking!</p>
+
+<p>Truly yours,
+Pavlo Golub<br />
+Author of <strong>pgxmock</strong> 💙💛</p>]]></content><author><name></name></author><category term="golang" /><category term="pgxmock" /><category term="what&apos;s new" /><category term="postgresql" /><category term="personal" /><summary type="html"><![CDATA[I am excited to announce the update of pgxmock v3.1! This update enables `pgx.QueryRewriter` interface support for mocking named parameters in your unit tests.]]></summary></entry><entry><title type="html">PostgresUS Diversity Scholarship to attend PGConf NYC</title><link href="https://pashagolub.github.io/blog/2023/postgres-diversity-scolarship/" rel="alternate" type="text/html" title="PostgresUS Diversity Scholarship to attend PGConf NYC" /><published>2023-09-21T10:10:19+00:00</published><updated>2023-09-21T10:10:19+00:00</updated><id>https://pashagolub.github.io/blog/2023/postgres-diversity-scolarship</id><content type="html" xml:base="https://pashagolub.github.io/blog/2023/postgres-diversity-scolarship/"><![CDATA[<p>I want to share the information published by <a href="http://chelseadole.com/about/">Chealse Dole</a> in the community <a href="https://postgresteam.slack.com/archives/CA3GJ7HF1/p1695263405724359">#pglsql-women</a> Slack channel for a wider audience:</p>
 
 <blockquote>
   <p>Heads up PG women – the PostgresUS Diversity Scholarship still has funding to support flights, hotels, and conference registration for 2-3 women to attend <a href="https://2023.pgconf.nyc/">PGConf NYC</a> on October 3-5th!</p>

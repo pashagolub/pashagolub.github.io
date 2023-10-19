@@ -3,17 +3,16 @@
 
   <!-- Head -->
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="refresh" content="3; url=/">    <!-- Metadata, OpenGraph and Schema.org -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    <!-- Metadata, OpenGraph and Schema.org -->
     
 
     <!-- Standard metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Underscores in numeric constants in PostgreSQL 16 | Pavlo pg Golub</title>
+    <title>pgxmock v3.1 is out! Mocking named parameters for PostgreSQL in Go! | Pavlo pg Golub</title>
     <meta name="author" content="Pavlo pg Golub">
-    <meta name="description" content="PostgreSQL 16 includes support for underscores in integer and numeric constants. Learn how to use them in large numbers without errors.
+    <meta name="description" content="I am excited to announce the update of pgxmock v3.1! This update enables `pgx.QueryRewriter` interface support for mocking named parameters in your unit tests.
 ">
     <meta name="keywords" content="pasha_golub, postgresql, ukraine, portfolio-website">
 
@@ -35,7 +34,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%95%8A%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://pashagolub.github.io/blog/2023/numeric-underscores/">
+    <link rel="canonical" href="https://pashagolub.github.io/blog/2023/pgxmock-v3.1-named-params/">
     
     <!-- Dark Mode -->
     
@@ -114,24 +113,100 @@
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Underscores in numeric constants in PostgreSQL 16</h1>
-    <p class="post-meta">April 18, 2023</p>
+    <h1 class="post-title">pgxmock v3.1 is out! Mocking named parameters for PostgreSQL in Go!</h1>
+    <p class="post-meta">October 19, 2023</p>
     <p class="post-tags">
       <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
         ·  
-        <a href="/blog/tag/sql">
-          <i class="fas fa-hashtag fa-sm"></i> sql</a>  
-          <a href="/blog/tag/postgresql">
-          <i class="fas fa-hashtag fa-sm"></i> postgresql</a>  
+        <a href="/blog/tag/golang">
+          <i class="fas fa-hashtag fa-sm"></i> golang</a>  
+          <a href="/blog/tag/pgxmock">
+          <i class="fas fa-hashtag fa-sm"></i> pgxmock</a>  
           <a href="/blog/tag/what-s-new">
           <i class="fas fa-hashtag fa-sm"></i> what's new</a>  
+          <a href="/blog/tag/postgresql">
+          <i class="fas fa-hashtag fa-sm"></i> postgresql</a>  
+          <a href="/blog/tag/personal">
+          <i class="fas fa-hashtag fa-sm"></i> personal</a>  
           
 
     </p>
   </header>
 
   <article class="post-content">
-    
+    <p>I am excited to announce the update of <strong><a href="https://github.com/pashagolub/pgxmock/releases/tag/v3.1.0" rel="external nofollow noopener" target="_blank">pgxmock v3.1</a></strong>! This update enables <code class="language-plaintext highlighter-rouge">pgx.QueryRewriter</code> interface support for mocking named parameters in your unit tests.</p>
+
+<h2 id="named-parameters-in-postgres">Named parameters? In Postgres?</h2>
+
+<p>The actual PostgreSQL <code class="language-plaintext highlighter-rouge">$1</code> style placeholders are not that bad when only a few exist. But it rapidly gets challenging to manage when there are many of them, especially when specific arguments are used multiple times.</p>
+
+<p>If you want to know how to use named parameters in your application with <strong>pgx</strong> and <strong>PostgreSQL</strong>, check the <a href="https://pkg.go.dev/github.com/jackc/pgx/v5#NamedArgs" rel="external nofollow noopener" target="_blank">documentation</a>.</p>
+
+<p>Here’s a quick example of how to use named parameters in your code:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">conn</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"select * from widgets where foo = @foo and bar = @bar"</span><span class="p">,</span> 
+    <span class="n">pgx</span><span class="o">.</span><span class="n">NamedArgs</span><span class="p">{</span><span class="s">"foo"</span><span class="o">:</span> <span class="m">1</span><span class="p">,</span> <span class="s">"bar"</span><span class="o">:</span> <span class="m">2</span><span class="p">})</span>
+</code></pre></div></div>
+<p>which is effectively the same as</p>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">conn</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"select * from widgets where foo = $1 and bar = $2"</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="introducing-withrewrittensql-to-pgxmock-expectations">Introducing <code class="language-plaintext highlighter-rouge">WithRewrittenSQL</code> to pgxmock expectations</h3>
+
+<p>The machinery of the <code class="language-plaintext highlighter-rouge">pgx.QueryRewriter</code> interface is supposed to rewrite the initial query and apply parameter values. Since in a real-life application, we may use custom implementations, not only provided by <code class="language-plaintext highlighter-rouge">pgx.NamedArgs</code>, we want to be able to check the final query. Exactly for this matter expectations <a href="https://pkg.go.dev/github.com/pashagolub/pgxmock/v3#ExpectedExec" rel="external nofollow noopener" target="_blank">ExpectedExec</a> and <a href="https://pkg.go.dev/github.com/pashagolub/pgxmock/v3#ExpectedQuery" rel="external nofollow noopener" target="_blank">ExpectedQuery</a> provide <code class="language-plaintext highlighter-rouge">WithRewrittenSQL</code> method.</p>
+
+<p>Example:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">TestInsertUser</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span><span class="n">testing</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">Parallel</span><span class="p">()</span>
+    <span class="n">mock</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">NewConn</span><span class="p">(</span><span class="n">QueryMatcherOption</span><span class="p">(</span><span class="n">QueryMatcherEqual</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"an error '%s' was not expected when opening a stub database connection"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">mock</span><span class="o">.</span><span class="n">ExpectExec</span><span class="p">(</span><span class="s">"INSERT INTO users(name, created_at) VALUES (@name, @time)"</span><span class="p">)</span><span class="o">.</span>
+        <span class="n">WithArgs</span><span class="p">(</span><span class="n">pgx</span><span class="o">.</span><span class="n">NamedArgs</span><span class="p">{</span><span class="s">"name"</span><span class="o">:</span> <span class="s">"john"</span><span class="p">,</span> <span class="s">"time"</span><span class="o">:</span> <span class="n">pgxmock</span><span class="o">.</span><span class="n">AnyTime</span><span class="p">{}})</span><span class="o">.</span>
+<span class="c">// or   WithArgs(john", pgxmock.AnyTime{}).</span>
+        <span class="n">WithRewrittenSQL</span><span class="p">(</span><span class="s">`INSERT INTO users(name, created_at) VALUES ($1, $2)`</span><span class="p">)</span><span class="o">.</span>
+        <span class="n">WillReturnResult</span><span class="p">(</span><span class="n">NewResult</span><span class="p">(</span><span class="s">"INSERT"</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">mock</span><span class="o">.</span><span class="n">Exec</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">Background</span><span class="p">(),</span>
+        <span class="s">"INSERT INTO users(name, created_at) VALUES (@name, @time)"</span><span class="p">,</span>
+        <span class="n">pgx</span><span class="o">.</span><span class="n">NamedArgs</span><span class="p">{</span><span class="s">"name"</span><span class="o">:</span> <span class="s">"john"</span><span class="p">,</span> <span class="s">"time"</span><span class="o">:</span> <span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()},</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"error '%s' was not expected, while inserting a row"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">mock</span><span class="o">.</span><span class="n">ExpectationsWereMet</span><span class="p">();</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"there were unfulfilled expectations: %s"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>As you can see in the example, the <code class="language-plaintext highlighter-rouge">WithArgs</code> method now supports the list of plain values and the <code class="language-plaintext highlighter-rouge">pgx.QueryRewriter</code> interface as the first argument.</p>
+
+<h2 id="ready-to-upgrade">Ready to Upgrade?</h2>
+
+<p>I motivate all users to upgrade to <strong>pgxmock v3.1</strong> to take advantage of these exciting enhancements and improvements. Whether you’re a long-time user or just starting with pgxmock, these changes will advance your PostgreSQL mocking experience.</p>
+
+<p>To get started with pgxmock v3.1, check your import statement:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="s">"github.com/pashagolub/pgxmock/v3"</span>
+</code></pre></div></div>
+
+<p>and/or run</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go get <span class="nt">-u</span> github.com/pashagolub/pgxmock/v3
+</code></pre></div></div>
+
+<p>Thank you for your continued support and feedback. I look forward to seeing how <strong>pgxmock v3.1</strong> empowers your PostgreSQL database testing. If you have any questions or need assistance with the upgrade, please contact me on <a href="https://github.com/pashagolub/pgxmock" rel="external nofollow noopener" target="_blank">GitHub</a>.</p>
+
+<p>Happy mocking!</p>
+
+<p>Truly yours,
+Pavlo Golub<br>
+Author of <strong>pgxmock</strong> 💙💛</p>
 
   </article>
 
