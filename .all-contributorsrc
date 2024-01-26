@@ -1,7 +1,5 @@
 {
-  "files": [
-    "README.md"
-  ],
+  "files": ["README.md"],
   "imageSize": 100,
   "commit": false,
   "contributorsPerLine": 7,
@@ -32,9 +30,15 @@
       "name": "Amir Pourmand",
       "avatar_url": "https://avatars.githubusercontent.com/u/32064808?v=4",
       "profile": "https://amirpourmand.ir",
-      "contributions": [
-        "code"
-      ]
+      "contributions": ["code"]
+    },
+    {
+      "login": "george-gca",
+      "name": "George",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31376482?v=4",
+      "profile": "https://george-gca.github.io/",
+      "contributions": ["code"]
     }
-  ]
+  ],
+  "commitConvention": "angular"
 }
