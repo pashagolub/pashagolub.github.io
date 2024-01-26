@@ -29,4 +29,6 @@ Location     | Bratislava, SK
 Career       | [2002,)
 Work         | Cybertec PostgreSQL International
 Community    | PostgreSQL Ukraine co-founder
+Invaders     | Must Die!
+Слава        | Україні!🇺🇦
 ```
