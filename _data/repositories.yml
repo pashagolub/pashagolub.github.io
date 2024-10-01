@@ -1,9 +1,14 @@
 github_users:
-  - pashagolub
+  - torvalds
+  - alshedivat
+
+repo_description_lines_max: 2
 
 github_repos:
-  - pashagolub/pgxmock
-  - cybertec-postgresql/pg_timetable
-  - cybertec-postgresql/pgwatch2
-  - cybertec-postgresql/vip-manager
-  - pashagolub/postgresdac
+  - alshedivat/al-folio
+  - jekyll/jekyll
+  - twbs/bootstrap
+  - jquery/jquery
+  - FortAwesome/Font-Awesome
+  - mathjax/MathJax
+  - jpswalsh/academicons
