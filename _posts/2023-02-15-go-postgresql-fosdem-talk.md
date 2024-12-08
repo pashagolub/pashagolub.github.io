@@ -3,8 +3,6 @@ layout: post
 title: >
   Go & PostgreSQL: FOSDEM 2023 talk
 date: 2023-02-15 17:39:00
-description: >
-  Generate an ER diagram for a PostgreSQL database using plain SQL and Mermaid. Explore entity relationship diagrams for architecture/dev
 tags:
   - conference
   - go
