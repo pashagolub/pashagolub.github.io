@@ -169,7 +169,8 @@ related_blog_posts:
 external_sources:
   - name: wordpress
     rss_url: https://pgolub.wordpress.com/category/postgresql/feed/
-  # - name: cybertec
+  - name: cybertec
+    rss_url: https://www.cybertec-postgresql.com/en/author/pavlo_golub/feed/
 
 # -----------------------------------------------------------------------------
 # Collections
