@@ -1,1 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"> <html><body> <p>Hans-Jürgen Schönig wrote a great post <a href="https://www.cybertec-postgresql.com/en/creating-1-million-users-in-postgresql/" target="_blank" rel="noopener">“Creating 1 million users in PostgreSQL”</a>. I just love such things! Well done! Thanks.</p> <p>But since there is no possibility to leave comments under original post (BTW why?), I’ll create my own post.</p> <ol> <li>When testing such tricks always create temp database. Because I accidentally used… no, no, not the production one.. but anyway. <img src="https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;"><br> <strong>UPD: </strong>&lt;/p&gt; <blockquote><p><span class="UFICommentActorAndBody"><span><span class="UFICommentBody">Since when temp database matters when creating cluster-wide role?<br> © Ervin Weber</span></span></span></p></blockquote> <p>So, yes. There is no need in test database. My bad! <img src="https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;">&lt;/li&gt; </p> </li> <li>Hans-Jürgen used <em>shell</em>, <em>psql</em> and <em>\gexec</em> combination. However, we may do all these steps using <em>psql</em> only</li> &lt;/ol&gt; <p>To make a long story short, this is my variant of creating 1 million users in PostgreSQL:</p> <pre>Test=# CREATE DATABASE test_role_db;
+CREATE DATABASE
+Time: 7947,657 ms
+
+Test=# \c test_role_db
+You are now connected to database "test_role_db".
+
+test_role_db=# \timing
+Timing is on.
+
+test_role_db=# DO $$
+test_role_db$# BEGIN
+test_role_db$#   FOR i IN 1..1000000 LOOP
+test_role_db$#     EXECUTE 'CREATE ROLE xy' || i;
+test_role_db$#   END LOOP;
+test_role_db$# END; $$;
+DO
+Time: 81267,482 ms
+</pre> <p>On my test environment generating 1 million users in a single transaction takes around 1 minute 21 seconds. This is a little bit longer than Hans-Jürgen’s timing. Suppose this is due to the hardware difference.</p> </ol> </body></html>

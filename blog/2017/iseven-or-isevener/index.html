@@ -1,1 +1,93 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"> <html><body> <p>Recently friend of mine sent me a funny picture:</p> <figure data-shortcode="caption" id="attachment_2180" aria-describedby="caption-attachment-2180" style="width: 907px" class="wp-caption alignnone"><img loading="lazy" data-attachment-id="2180" data-permalink="https://pgolub.wordpress.com/2017/11/17/iseven-or-isevener/p-0bb4eb9941d337f1a9ecb580628934bb2_full/" data-orig-file="https://pgolub.wordpress.com/wp-content/uploads/2017/11/p-0bb4eb9941d337f1a9ecb580628934bb2_full.jpg" data-orig-size="907,792" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="p-0bb4eb9941d337f1a9ecb580628934bb2_full" data-image-description="&lt;p&gt;IsEven on Java&lt;/p&gt; " data-image-caption="&lt;p&gt;IsEven on Java&lt;/p&gt; " data-medium-file="https://pgolub.wordpress.com/wp-content/uploads/2017/11/p-0bb4eb9941d337f1a9ecb580628934bb2_full.jpg?w=300" data-large-file="https://pgolub.wordpress.com/wp-content/uploads/2017/11/p-0bb4eb9941d337f1a9ecb580628934bb2_full.jpg?w=907" class="alignnone size-full wp-image-2180" src="https://pgolub.wordpress.com/wp-content/uploads/2017/11/p-0bb4eb9941d337f1a9ecb580628934bb2_full.jpg?w=1100" alt="IsEven on Java" srcset="https://pgolub.wordpress.com/wp-content/uploads/2017/11/p-0bb4eb9941d337f1a9ecb580628934bb2_full.jpg 907w, https://pgolub.wordpress.com/wp-content/uploads/2017/11/p-0bb4eb9941d337f1a9ecb580628934bb2_full.jpg?w=150&amp;h=131 150w, https://pgolub.wordpress.com/wp-content/uploads/2017/11/p-0bb4eb9941d337f1a9ecb580628934bb2_full.jpg?w=300&amp;h=262 300w, https://pgolub.wordpress.com/wp-content/uploads/2017/11/p-0bb4eb9941d337f1a9ecb580628934bb2_full.jpg?w=768&amp;h=671 768w" sizes="(max-width: 907px) 100vw, 907px"><figcaption id="caption-attachment-2180" class="wp-caption-text">IsEven on Java</figcaption></figure> <p>Cool, ha?!</p> <p><span id="more-2048"></span></p> <figure data-shortcode="caption" id="attachment_2181" aria-describedby="caption-attachment-2181" style="width: 500px" class="wp-caption aligncenter"><img loading="lazy" data-attachment-id="2181" data-permalink="https://pgolub.wordpress.com/2017/11/17/iseven-or-isevener/tumblr_njzrzaicmg1s3h43ko1_500/" data-orig-file="https://pgolub.wordpress.com/wp-content/uploads/2017/11/tumblr_njzrzaicmg1s3h43ko1_500.gif" data-orig-size="500,365" data-comments-opened="1" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="tumblr_njzrzaicmg1s3h43ko1_500" data-image-description="&lt;p&gt;Challenge accepted&lt;/p&gt; " data-image-caption="&lt;p&gt;Challenge accepted&lt;/p&gt; " data-medium-file="https://pgolub.wordpress.com/wp-content/uploads/2017/11/tumblr_njzrzaicmg1s3h43ko1_500.gif?w=300" data-large-file="https://pgolub.wordpress.com/wp-content/uploads/2017/11/tumblr_njzrzaicmg1s3h43ko1_500.gif?w=500" class="alignnone size-full wp-image-2181" src="https://pgolub.wordpress.com/wp-content/uploads/2017/11/tumblr_njzrzaicmg1s3h43ko1_500.gif?w=1100" alt="Challenge accepted" srcset="https://pgolub.wordpress.com/wp-content/uploads/2017/11/tumblr_njzrzaicmg1s3h43ko1_500.gif 500w, https://pgolub.wordpress.com/wp-content/uploads/2017/11/tumblr_njzrzaicmg1s3h43ko1_500.gif?w=150&amp;h=110 150w, https://pgolub.wordpress.com/wp-content/uploads/2017/11/tumblr_njzrzaicmg1s3h43ko1_500.gif?w=300&amp;h=219 300w" sizes="(max-width: 500px) 100vw, 500px"><figcaption id="caption-attachment-2181" class="wp-caption-text">Challenge accepted</figcaption></figure> <p>Then I thought about <em><a href="https://www.postgresql.org/docs/10/static/plpgsql.html" target="_blank" rel="external nofollow noopener">plpgsql</a></em> and created <em>IsEven </em>function:</p> <pre>CREATE OR REPLACE FUNCTION IsEven(n integer) 
+RETURNS boolean AS $$
+DECLARE 
+    maxint CONSTANT integer := 2147483647;
+BEGIN
+    IF n = maxint THEN
+	RETURN false;
+    END IF;	
+    RETURN IsEven(n + 2);
+EXCEPTION
+    WHEN numeric_value_out_of_range THEN
+        RETURN true;
+END;
+$$
+LANGUAGE plpgsql;
+</pre> <p>This was my first working plpgsql function ever! OK, let’s try it:</p> <pre>vseprovse=# \timing
+Timing is on.
+vseprovse=# SELECT IsEven(2147483647);
+ iseven
+--------
+ f
+(1 row)
+
+Time: 3,430 ms
+vseprovse=# SELECT IsEven(2147483600);
+ iseven
+--------
+ t
+(1 row)
+
+Time: 21,731 ms
+vseprovse=# SELECT IsEven(2147483000);
+ iseven
+--------
+ t
+(1 row)
+
+Time: 55,960 ms
+vseprovse=# SELECT IsEven(2147480000);
+ERROR:  stack depth limit exceeded
+HINT:  Increase the configuration parameter 
+"max_stack_depth" (currently 2048kB), after 
+ensuring the platform's stack depth limit 
+is adequate.
+CONTEXT:  SQL statement "SELECT IsEven(n + 2)"
+PL/pgSQL function iseven(integer) line 8 at RETURN
+SQL statement "SELECT IsEven(n + 2)"
+PL/pgSQL function iseven(integer) line 8 at RETURN
+...(and a hundred lines of the same error string)</pre> <p>Oops! Not funny. Of course, I may increase “max_stack_depth”, but… I decided to rewrite function from scratch!</p> <pre>CREATE OR REPLACE FUNCTION IsEvenER(n integer) 
+RETURNS boolean AS $$
+DECLARE 
+    maxint CONSTANT integer := 2147483647;
+BEGIN
+    LOOP
+	IF n = maxint THEN
+	    RETURN false;
+	END IF;	
+	n := n + 2;
+    END LOOP;
+EXCEPTION
+    WHEN numeric_value_out_of_range THEN
+        RETURN true;
+END;
+$$
+LANGUAGE plpgsql;
+</pre> <p>Let’s try:</p> <pre>
+vseprovse=# SELECT IsEvenER(2147483647);
+ isevener
+----------
+ f
+(1 row)
+
+Time: 2,250 ms
+vseprovse=# SELECT IsEvenER(2147480000);
+ isevener
+----------
+ t
+(1 row)
+
+Time: 5,753 ms
+vseprovse=# SELECT IsEvenER(2100000000);
+ isevener
+----------
+ t
+(1 row)
+
+Time: 59088,985 ms
+vseprovse=# SELECT IsEvenER(0);
+^CCancel request sent
+ERROR:  canceling statement due to user request
+CONTEXT:  PL/pgSQL function isevener(integer) line 6 at IF
+Time: 1173804,198 ms
+</pre> <p>I waited for 20 minutes… almost. But then I killed it. What are your timings? <img src="https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;"></p> </body></html>
