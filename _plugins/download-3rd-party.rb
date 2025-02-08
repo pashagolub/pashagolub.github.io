@@ -67,17 +67,10 @@ Jekyll::Hooks.register :site, :after_init do |site|
     end
 
     # download the file if it doesn't exist
-    unless File.file?(dest)
+    unless File.exist?(dest)
       puts "Downloading #{url} to #{dest}"
-      File.open(dest, "wb") do |saved_file|
-        URI(url).open("rb") do |read_file|
-          saved_file.write(read_file.read)
-        end
-      end
-
-      # check if the file was downloaded successfully
-      unless File.file?(dest)
-        raise "Failed to download #{url} to #{dest}"
+      URI.open(url) do |u|
+        File.open(dest, 'wb') { |f| f.write(u.read) }
       end
     end
   end
@@ -250,4 +243,24 @@ Jekyll::Hooks.register :site, :after_init do |site|
       end
     end
   end
+
+  # Add debugging to identify the issue
+  puts "Site config: #{site.config.inspect}"
+  puts "Site source: #{site.source.inspect}"
+
+  # Ensure the site source is not nil
+  if site.source.nil?
+    raise "Site source is nil"
+  end
+
+  # Ensure the site config is not nil
+  if site.config.nil?
+    raise "Site config is nil"
+  end
+
+  # Add more debugging if needed
+  # ...
+
+  # Your existing code that might be causing the issue
+  # ...
 end
