@@ -1,9 +1,12 @@
 github_users:
   - pashagolub
 
+repo_description_lines_max: 2
+
 github_repos:
-  - pashagolub/pgxmock
   - cybertec-postgresql/pg_timetable
-  - cybertec-postgresql/pgwatch2
+  - cybertec-postgresql/pgwatch
   - cybertec-postgresql/vip-manager
+  - patroni/patroni
+  - pashagolub/pgxmock
   - pashagolub/postgresdac
