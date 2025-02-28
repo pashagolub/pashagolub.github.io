@@ -2,12 +2,11 @@
 # the commented lines are the default social media links supported by the template
 # the socials will be displayed in the order they are defined here
 
-
 work_url: https://www.cybertec-postgresql.com/en/ # work page URL
 github_username: pashagolub # your GitHub user name
 gitlab_username: pashagolub # your GitLab user name
 mastodon_username: fosstodon.org/@PavloGolub # your mastodon instance+username in the format instance.tld/@username
-bluesky_url: https://bsky.app/profile/pavlogolub.bsky.social # your bluesky URL 
+bluesky_url: https://bsky.app/profile/pavlogolub.bsky.social # your bluesky URL
 linkedin_username: pashagolub # your LinkedIn user name
 telegram_username: pasha_golub # your Telegram user name
 stackoverflow_id: 1109280 # your stackoverflow id
@@ -51,5 +50,4 @@ rss_icon: true # set to true to show the RSS icon
 # wikipedia_id: # your wikipedia id (Case sensitive)
 # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
-
 
