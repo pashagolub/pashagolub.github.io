@@ -7,11 +7,8 @@
     "phone": "(912) 123-4567",
     "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "city": "Bratislava",
+      "country": "Slovakia"
     },
     "profiles": []
   },
@@ -158,25 +155,73 @@
   ],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
-      "icon": "fa-solid fa-hashtag",
+      "name": "Programming Languages & Frameworks",
+      "keywords": ["SQL", "Go", "Delphi/Pascal", "Plain C", "Python", "TypeScript", "PHP", "JavaScript/HTML/CSS/Ajax"]
+    },
+    {
+      "name": "Databases & Data Management",
+      "keywords": ["PostgreSQL", "TimescaleDB", "Etcd", "MySQL", "MS Access"]
+    },
+    {
+      "name": "DevOps & Tools",
+      "keywords": ["Docker", "Kubernetes", "Git", "Github Actions", "Grafana", "Prometheus", "Patroni", "PgBouncer", "Pgpool2", "Bash", "PowerShell"]
+    },
+    {
+      "name": "Platforms & Operating Systems",
+      "keywords": ["Linux", "Windows", "DOS"]
+    },
+    {
+      "name": "IDEs & Development Tools",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "VS Code",
+        "RAD Studio",
+        "PyCharm",
+        "Sublime Text",
+        "pgAdmin",
+        "DBeaver",
+        "Lazarus/FreePascal",
+        "MinGW/GCC",
+        "MSYS2",
+        "InstallShield",
+        "EurekaLog",
+        "HeidiSQL",
+        "phpMyAdmin",
+        "MicroOLAP DB Designer"
+      ]
+    },
+    {
+      "name": "Professional Skills",
+      "keywords": [
+        "Software Architecture Design",
+        "Technical Documentation",
+        "Performance Tuning",
+        "Database Clustering",
+        "System Scalability",
+        "Mentoring",
+        "Technical Training"
       ]
     }
   ],
-  "languages": [
+  "education": [
     {
-      "language": "German",
-      "fluency": "Native speaker",
-      "icon": ""
+      "institution": "Kirovograd State Pedagogical University",
+      "area": "Mathematics and Computer Science",
+      "studyType": "Master's Degree (MEd)",
+      "startDate": "1998-01-01",
+      "endDate": "2003-01-01"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Official PostgreSQL Contributor",
+      "startDate": "2024-10-01"
     },
+    {
+      "name": "Google Summer of Code PostgreSQL Organization Administrator",
+      "startDate": "2023-09-20"
+    }
+  ],
+  "languages": [
     {
       "language": "English",
       "fluency": "Fluent",
@@ -211,9 +256,39 @@
   ],
   "projects": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
+      "name": "pgwatch",
+      "description": "Non-invasive PostgreSQL monitoring tool with Grafana dashboards and multi-environment support.",
+      "highlights": [
+        "No superuser rights or extensions required.",
+        "Supports AWS RDS, PgBouncer, Pgpool2, and Patroni.",
+        "Metrics stored in PostgreSQL, TimescaleDB, or Prometheus."
+      ],
+      "keywords": ["PostgreSQL", "Monitoring", "Grafana", "Prometheus", "TimescaleDB"],
+      "startDate": "2023-01-01",
+      "url": "https://github.com/cybertec-postgresql/pgwatch3",
+      "roles": ["Developer", "Maintainer"]
+    },
+    {
+      "name": "pg_timetable",
+      "description": "Advanced PostgreSQL job scheduler with support for SQL commands and system operations.",
+      "highlights": [
+        "Fully database-driven design.",
+        "Superior to cron for PostgreSQL-related workflows.",
+        "Supports parallel and conditional job chains."
+      ],
+      "keywords": ["PostgreSQL", "Job Scheduling", "Automation"],
+      "startDate": "2020-01-01",
+      "url": "https://github.com/cybertec-postgresql/pg_timetable",
+      "roles": ["Developer", "Maintainer"]
+    },
+    {
+      "name": "Patroni for Windows",
+      "description": "Port of the high-availability PostgreSQL tool Patroni to Windows.",
+      "highlights": [
+        "Adapted core functionality to support Windows environments.",
+        "Enabled high-availability clusters on Windows-based infrastructure."
+      ],
+      "keywords": ["PostgreSQL", "High Availability", "Windows", "Patroni"],
       "startDate": "2018-01-01",
       "endDate": "2018-01-01"
     }
