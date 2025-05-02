@@ -8,7 +8,7 @@ middle_name: pg
 last_name: Golub
 email: pavlo.golub@gmail.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A personal page with the blog and CV.
+  A personal page with the blog and CV
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -217,7 +217,6 @@ kramdown:
 include: ["_pages"]
 exclude:
   - _projects
-  - _pages/cv.md
   - _pages/profiles.md
   - _pages/about_einstein.md
   - bin
