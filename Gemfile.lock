@@ -364,9 +364,7 @@ DEPENDENCIES
   classifier-reborn
   css_parser
   jekyll
-  jekyll-3rd-party-libraries
-  jekyll-archives-v2
-  jekyll-cache-bust
+  jekyll-archives
   jekyll-email-protect
   jekyll-feed
   jekyll-get-json
@@ -386,6 +384,7 @@ DEPENDENCIES
   jemoji
   observer
   ostruct
+  terser
 
 CHECKSUMS
   activesupport (7.2.3.1) sha256=11ebed516a43a0bb47346227a35ebae4d9427465a7c9eb197a03d5c8d283cb34
