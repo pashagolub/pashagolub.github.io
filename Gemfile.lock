@@ -60,7 +60,7 @@ GEM
       csl (~> 2.0)
     css_parser (1.21.1)
       addressable
-    cssminify2 (2.0.1)
+    cssminify2 (2.1.0)
     csv (3.3.4)
     date (3.4.1)
     deep_merge (1.2.2)
@@ -140,7 +140,8 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
-    jekyll-archives (2.3.0)
+    jekyll-archives-v2 (0.0.8)
+      activesupport
       jekyll (>= 3.6, < 5.0)
     jekyll-cache-bust (0.0.1)
       jekyll (>= 3.6, < 5.0)
@@ -173,7 +174,7 @@ GEM
       jekyll (~> 4.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-socials (0.0.6)
+    jekyll-socials (0.0.7)
       jekyll (>= 3.6, < 5.0)
     jekyll-tabs (1.2.1)
       jekyll (>= 3.0, < 5.0)
@@ -208,8 +209,8 @@ GEM
     mercenary (0.4.0)
     mini_mime (1.1.5)
     minitest (5.25.5)
-    multi_xml (0.7.2)
-      bigdecimal (~> 3.1)
+    multi_xml (0.8.1)
+      bigdecimal (>= 3.1, < 5)
     namae (1.2.0)
       racc (~> 1.7)
     nokogiri (1.18.8-aarch64-linux-gnu)
@@ -242,7 +243,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rexml (3.4.1)
+    rexml (3.4.4)
     rouge (4.5.2)
     safe_yaml (1.0.5)
     sass-embedded (1.89.0-aarch64-linux-gnu)
@@ -296,7 +297,9 @@ DEPENDENCIES
   feedjira
   httparty
   jekyll
-  jekyll-archives
+  jekyll-3rd-party-libraries
+  jekyll-archives-v2
+  jekyll-cache-bust
   jekyll-email-protect
   jekyll-feed
   jekyll-get-json
@@ -316,7 +319,6 @@ DEPENDENCIES
   jemoji
   observer
   ostruct
-  terser
 
 BUNDLED WITH
    2.6.8
