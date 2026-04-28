@@ -112,7 +112,7 @@ GEM
       csl (~> 2.0)
     css_parser (1.22.0)
       addressable
-    cssminify2 (2.0.1)
+    cssminify2 (2.1.0)
     csv (3.3.4)
     date (3.4.1)
     deep_merge (1.2.2)
@@ -296,7 +296,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rexml (3.4.1)
+    rexml (3.4.4)
     rouge (4.5.2)
     safe_yaml (1.0.5)
     sass-embedded (1.100.0-aarch64-linux-gnu)
@@ -364,7 +364,9 @@ DEPENDENCIES
   classifier-reborn
   css_parser
   jekyll
-  jekyll-archives
+  jekyll-3rd-party-libraries
+  jekyll-archives-v2
+  jekyll-cache-bust
   jekyll-email-protect
   jekyll-feed
   jekyll-get-json
@@ -384,7 +386,6 @@ DEPENDENCIES
   jemoji
   observer
   ostruct
-  terser
 
 CHECKSUMS
   activesupport (7.2.3.1) sha256=11ebed516a43a0bb47346227a35ebae4d9427465a7c9eb197a03d5c8d283cb34
