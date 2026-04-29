@@ -12,6 +12,7 @@ stackoverflow_id: 1109280 # your stackoverflow id
 x_username: pavlogolub # your Twitter handle
 rss_icon: true # set to true to show the RSS icon
 
+
 # custom_social: # can be any name here other than the ones already defined above
 #   logo: https://sessionize.com/landing/images/brand/logo/sessionize-avatar.svg # can be png, svg, jpg
 #   title: Sessionize # the name of the social media
