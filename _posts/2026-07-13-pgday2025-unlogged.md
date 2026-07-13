@@ -14,6 +14,4 @@ I'm dropping this as a test to see if you enjoy this faster, unedited format. Ch
 
 Watch the video on [YouTube](https://youtu.be/fmXDeIODQ14).
 
-{% raw %}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fmXDeIODQ14" frameborder="0" allowfullscreen></iframe>
-{% endraw %}
