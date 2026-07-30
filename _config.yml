@@ -201,7 +201,7 @@ related_blog_posts:
 #   lang: en
 
 # Disqus comments (DEPRECATED)
-# disqus_shortname: al-folio # put your disqus shortname
+disqus_shortname: al-folio # put your disqus shortname
 # https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 # External sources.
@@ -363,9 +363,9 @@ jekyll-archives:
   posts:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
     layouts:
-      year: archive-year
-      tag: archive-tag
-      category: archive-category
+      year: archive
+      tag: archive
+      category: archive
     permalinks:
       year: "/blog/:year/"
       tags: "/blog/tag/:name/"
