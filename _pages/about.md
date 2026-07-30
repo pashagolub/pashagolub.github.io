@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: "Working with <a href=\"https://www.postgresql.org/\">postgres</a> for 20+ years. 🐘"
+subtitle: "Working with <a href=\"https://www.postgresql.org/\">postgres</a> since 2002! 🐘"
 
 profile:
   align: right
@@ -16,6 +16,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
+```
 name         | setting
 -------------|----------------------------
 Name         | Pavlo Golub 👋
@@ -28,3 +29,4 @@ Work         | Cybertec PostgreSQL International
 Community    | PostgreSQL Ukraine co-founder
 Invaders     | Must Die!
 Слава        | Україні!🇺🇦
+```
