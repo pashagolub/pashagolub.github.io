@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Working with <a href="https://www.postgresql.org/">postgres</a> for <code>{{ CURRENT_YEAR - 2002 }}</code> years. 🐘
+subtitle: "Working with <a href=\"https://www.postgresql.org/\">postgres</a> for 20+ years. 🐘"
 
 profile:
   align: right
@@ -16,10 +16,8 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
-
-name         |               setting
--------------------------------------------------
+name         | setting
+-------------|----------------------------
 Name         | Pavlo Golub 👋
 Height       | 202cm
 Weight       | NaN
@@ -30,4 +28,3 @@ Work         | Cybertec PostgreSQL International
 Community    | PostgreSQL Ukraine co-founder
 Invaders     | Must Die!
 Слава        | Україні!🇺🇦
-```
