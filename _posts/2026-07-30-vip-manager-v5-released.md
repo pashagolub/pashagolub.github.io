@@ -11,9 +11,9 @@ tags:
   - what's new
 ---
 
-High availability setups are never "set and forget". Every new release of your tooling can change how your cluster behaves at 3 a.m. when something breaks.
+High availability setups are never "set and forget". Every new release of your tooling can change how your cluster behaves at 03:00 when something breaks.
 
-vip-manager v5 is one of those releases you **really** want to read about before just hitting `apt upgrade`. In this post I'll walk through the important breaking changes, what they mean in practice, and what you should do before rolling this out on production.
+[vip-manager v5](https://github.com/cybertec-postgresql/vip-manager/releases/tag/v5.0.0) is one of those releases you **really** want to read about before just hitting `apt upgrade`. In this post I'll walk through the important breaking changes, what they mean in practice, and what you should do before rolling this out on production.
 
 ---
 
@@ -76,9 +76,7 @@ This is safer from a **consistency** perspective:
 - If your DCS is down, vip-manager refuses to guess.
 - That means fewer chances to have two nodes thinking they are primary and both serving writes.
 
-But it also means:
-
-- **Temporary DCS outages -> VIP loss.**
+But **temporary DCS/patroni outages** now also mean **VIP loss**.
 
 ### Impact on your environment
 
@@ -144,7 +142,7 @@ If something surprises you in staging, it will hurt much more in production.
 Your monitoring must now understand that:
 
 - **VIP removal is expected** when DCS is unreachable.
-- DCS health is now **directly tied to service availability**.
+- DCS/patroni health is now **directly tied to service availability**.
 
 Concretely:
 
