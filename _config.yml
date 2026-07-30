@@ -352,8 +352,6 @@ jekyll-minifier:
   compress_css: false
   # JS minification is delegated to jekyll-terser (compress_javascript above is false).
   exclude: ["robots.txt"]
-
-  exclude: ["robots.txt"]
   uglifier_args:
     harmony: true
 

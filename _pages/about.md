@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: "Working with <a href=\"https://www.postgresql.org/\">postgres</a> since 2002! 🐘"
+subtitle: 'Working with <a href="https://www.postgresql.org/">postgres</a> since 2002! 🐘'
 
 profile:
   align: right

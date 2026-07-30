@@ -172,10 +172,7 @@
     {
       "name": "pgxmock",
       "description": "Mock library for testing Go code that uses pgx PostgreSQL driver.",
-      "highlights": [
-        "Supports named parameters and multiple result sets.",
-        "Widely used in the Go/PostgreSQL ecosystem."
-      ],
+      "highlights": ["Supports named parameters and multiple result sets.", "Widely used in the Go/PostgreSQL ecosystem."],
       "keywords": ["PostgreSQL", "Go", "Testing", "pgx"],
       "startDate": "2021-01-01",
       "url": "https://github.com/pashagolub/pgxmock",
@@ -184,10 +181,7 @@
     {
       "name": "vip-manager",
       "description": "Tool for managing Virtual IP addresses for PostgreSQL high-availability clusters.",
-      "highlights": [
-        "Integrates with Patroni and other HA solutions.",
-        "Supports etcd, Consul, and Kubernetes for leader election."
-      ],
+      "highlights": ["Integrates with Patroni and other HA solutions.", "Supports etcd, Consul, and Kubernetes for leader election."],
       "keywords": ["PostgreSQL", "High Availability", "Go", "Patroni"],
       "startDate": "2018-01-01",
       "url": "https://github.com/cybertec-postgresql/vip-manager",
@@ -196,10 +190,7 @@
     {
       "name": "pgcov",
       "description": "PostgreSQL PL/pgSQL code coverage tool — tracks which lines of stored procedures and functions are executed during tests.",
-      "highlights": [
-        "Integrates with standard PostgreSQL test workflows.",
-        "Helps identify untested code paths in PL/pgSQL functions."
-      ],
+      "highlights": ["Integrates with standard PostgreSQL test workflows.", "Helps identify untested code paths in PL/pgSQL functions."],
       "keywords": ["PostgreSQL", "PL/pgSQL", "Code Coverage", "Testing"],
       "startDate": "2022-01-01",
       "url": "https://github.com/cybertec-postgresql/pgcov",
@@ -208,10 +199,7 @@
     {
       "name": "confelo",
       "description": "Conference schedule and session management tool.",
-      "highlights": [
-        "Designed for managing technical conference agendas.",
-        "Lightweight and easy to deploy."
-      ],
+      "highlights": ["Designed for managing technical conference agendas.", "Lightweight and easy to deploy."],
       "keywords": ["Go", "Conference", "Scheduling"],
       "startDate": "2023-01-01",
       "url": "https://github.com/pashagolub/confelo",
@@ -220,10 +208,7 @@
     {
       "name": "postgresdac",
       "description": "Delphi/Pascal data access components for PostgreSQL — native connectivity for RAD Studio and Lazarus applications.",
-      "highlights": [
-        "Native PostgreSQL connectivity without ODBC.",
-        "Supports Delphi, C++ Builder, and Lazarus/FreePascal."
-      ],
+      "highlights": ["Native PostgreSQL connectivity without ODBC.", "Supports Delphi, C++ Builder, and Lazarus/FreePascal."],
       "keywords": ["PostgreSQL", "Delphi", "Pascal", "Data Access Components"],
       "startDate": "2005-01-01",
       "url": "https://github.com/pashagolub/postgresdac",
