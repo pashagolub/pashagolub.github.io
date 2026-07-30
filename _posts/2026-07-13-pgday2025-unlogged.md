@@ -2,7 +2,7 @@
 layout: post
 title: "Swiss PgDay 2026 [UNLOGGED]"
 date: 2026-07-13 00:00:00 +0000
-tags: [postgresql, events, PAVLOG, personal]
+tags: [postgresql, events, PAVLOG, personal, video]
 description: "A fast, meme-focused cut from Swiss PgDay 2026 — the UNLOGGED experiment."
 ---
 
