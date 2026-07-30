@@ -192,6 +192,42 @@
       "startDate": "2018-01-01",
       "url": "https://github.com/cybertec-postgresql/vip-manager",
       "roles": ["Developer", "Maintainer"]
+    },
+    {
+      "name": "pgcov",
+      "description": "PostgreSQL PL/pgSQL code coverage tool — tracks which lines of stored procedures and functions are executed during tests.",
+      "highlights": [
+        "Integrates with standard PostgreSQL test workflows.",
+        "Helps identify untested code paths in PL/pgSQL functions."
+      ],
+      "keywords": ["PostgreSQL", "PL/pgSQL", "Code Coverage", "Testing"],
+      "startDate": "2022-01-01",
+      "url": "https://github.com/cybertec-postgresql/pgcov",
+      "roles": ["Author", "Maintainer"]
+    },
+    {
+      "name": "confelo",
+      "description": "Conference schedule and session management tool.",
+      "highlights": [
+        "Designed for managing technical conference agendas.",
+        "Lightweight and easy to deploy."
+      ],
+      "keywords": ["Go", "Conference", "Scheduling"],
+      "startDate": "2023-01-01",
+      "url": "https://github.com/pashagolub/confelo",
+      "roles": ["Author", "Maintainer"]
+    },
+    {
+      "name": "postgresdac",
+      "description": "Delphi/Pascal data access components for PostgreSQL — native connectivity for RAD Studio and Lazarus applications.",
+      "highlights": [
+        "Native PostgreSQL connectivity without ODBC.",
+        "Supports Delphi, C++ Builder, and Lazarus/FreePascal."
+      ],
+      "keywords": ["PostgreSQL", "Delphi", "Pascal", "Data Access Components"],
+      "startDate": "2005-01-01",
+      "url": "https://github.com/pashagolub/postgresdac",
+      "roles": ["Author", "Maintainer"]
     }
   ]
 }
