@@ -1,89 +1,110 @@
 {
   "basics": {
     "name": "Pavlo Golub",
-    "label": "Senior PostgreSQL Expert & Open Source Developer",
-    "image": "",
-    "email": "pavlo.golub@cybertec.at",
-    "phone": "",
-    "summary": "Senior PostgreSQL expert with 20+ years of experience in database engineering, open source development, and technical leadership. Co-founder of PostgreSQL Ukraine, Google Summer of Code organization administrator, and maintainer of several PostgreSQL ecosystem tools.",
+    "label": "Senior Developer and PostgreSQL Consultant",
+    "email": "pavlo.golub@gmail.com",
     "location": {
       "city": "Bratislava",
-      "country": "Slovakia"
+      "region": "Slovakia"
     },
     "profiles": [
       {
-        "network": "GitHub",
-        "username": "pashagolub",
-        "url": "https://github.com/pashagolub"
-      },
-      {
         "network": "LinkedIn",
         "username": "pashagolub",
-        "url": "https://www.linkedin.com/in/pashagolub"
+        "url": "https://www.linkedin.com/in/pashagolub/"
       },
       {
-        "network": "Mastodon",
-        "username": "@PavloGolub@fosstodon.org",
-        "url": "https://fosstodon.org/@PavloGolub"
+        "network": "GitHub",
+        "username": "pashagolub",
+        "url": "https://pashagolub.github.io/"
       }
-    ]
+    ],
+    "summary": "Senior Developer and PostgreSQL Consultant with over 20 years of professional experience specializing in PostgreSQL database optimization, high-performance backend development, and robust, open-source software solutions. Official PostgreSQL Contributor, co-founder of PostgreSQL Ukraine, and Google Summer of Code PostgreSQL Organization Administrator, actively contributing to the PostgreSQL community. Adept at architecting scalable systems, enhancing database reliability, and mentoring technical teams."
   },
   "work": [
     {
-      "name": "CYBERTEC PostgreSQL International GmbH",
-      "position": "Senior PostgreSQL Expert",
-      "url": "https://www.cybertec-postgresql.com/en/",
-      "location": "Vienna, Austria (Remote)",
-      "startDate": "2017-01-01",
-      "summary": "Consulting, performance tuning, high-availability clustering, and open source development for PostgreSQL customers worldwide.",
+      "name": "Cybertec PostgreSQL International",
+      "position": "Senior PostgreSQL Consultant and Developer",
+      "startDate": "2018-01-01",
+      "summary": "Provide expert consulting services on PostgreSQL optimization, clustering, and performance tuning. Mentor teams, deliver training, and develop open-source tools.",
       "highlights": [
-        "Developed and maintained pg_timetable — advanced PostgreSQL job scheduler.",
-        "Developed and maintained pgwatch — non-invasive PostgreSQL monitoring tool.",
-        "Ported Patroni high-availability tool to Windows.",
-        "Delivered training and consulting to enterprise customers across Europe."
+        "Developed pgwatch, a non-invasive PostgreSQL monitoring solution with Grafana integration.",
+        "Created pg_timetable, an advanced PostgreSQL job scheduler.",
+        "Ported Patroni to Windows.",
+        "Developed vip-manager for PostgreSQL high availability."
       ]
     },
     {
-      "name": "PostgreSQL Community",
-      "position": "Official PostgreSQL Contributor",
-      "url": "https://www.postgresql.org/",
-      "startDate": "2002-01-01",
-      "summary": "Contributing to the PostgreSQL ecosystem through open source projects, community events, and mentorship.",
+      "name": "MicroOLAP Technologies",
+      "position": "Chief of Development",
+      "startDate": "2008-01-01",
+      "endDate": "2018-01-01",
+      "summary": "Led development of flagship database tools. Managed full product lifecycle and customer support.",
       "highlights": [
-        "Co-founder of PostgreSQL Ukraine community.",
-        "Google Summer of Code organization administrator since 2023.",
-        "Speaker at PGConf Europe, PGDay Belgium, FOSDEM, Swiss PGDay, and other conferences."
+        "Directed development of MicroOLAP Database Designer for PostgreSQL.",
+        "Created and maintained PostgresDAC components.",
+        "Built PaGoDump & PaGoRestore GUI tools for PostgreSQL backup and restore."
       ]
     }
   ],
-  "volunteer": [
+  "skills": [
     {
-      "organization": "PostgreSQL Ukraine",
-      "position": "Co-founder",
-      "url": "https://www.postgresql.org.ua/",
-      "startDate": "2010-01-01",
-      "summary": "Co-founded and helped grow the Ukrainian PostgreSQL community.",
-      "highlights": ["Organized meetups and conferences for Ukrainian PostgreSQL users and developers."]
+      "name": "Programming Languages & Frameworks",
+      "keywords": ["SQL", "Go", "Delphi/Pascal", "Plain C", "Python", "TypeScript", "PHP", "JavaScript/HTML/CSS/Ajax"]
     },
     {
-      "organization": "Google Summer of Code — PostgreSQL",
-      "position": "Organization Administrator",
-      "url": "https://summerofcode.withgoogle.com/",
-      "startDate": "2023-09-20",
-      "summary": "Administering PostgreSQL's participation in Google Summer of Code, mentoring student contributors."
+      "name": "Databases & Data Management",
+      "keywords": ["PostgreSQL", "TimescaleDB", "Etcd", "MySQL", "MS Access"]
+    },
+    {
+      "name": "DevOps & Tools",
+      "keywords": ["Docker", "Kubernetes", "Git", "Github Actions", "Grafana", "Prometheus", "Patroni", "PgBouncer", "Pgpool2", "Bash", "PowerShell"]
+    },
+    {
+      "name": "Platforms & Operating Systems",
+      "keywords": ["Linux", "Windows", "DOS"]
+    },
+    {
+      "name": "IDEs & Development Tools",
+      "keywords": [
+        "VS Code",
+        "RAD Studio",
+        "PyCharm",
+        "Sublime Text",
+        "pgAdmin",
+        "DBeaver",
+        "Lazarus/FreePascal",
+        "MinGW/GCC",
+        "MSYS2",
+        "InstallShield",
+        "EurekaLog",
+        "HeidiSQL",
+        "phpMyAdmin",
+        "MicroOLAP DB Designer"
+      ]
+    },
+    {
+      "name": "Professional Skills",
+      "keywords": [
+        "Software Architecture Design",
+        "Technical Documentation",
+        "Performance Tuning",
+        "Database Clustering",
+        "System Scalability",
+        "Mentoring",
+        "Technical Training"
+      ]
     }
   ],
   "education": [
     {
       "institution": "Kirovograd State Pedagogical University",
-      "location": "Kropyvnytskyi, Ukraine",
       "area": "Mathematics and Computer Science",
       "studyType": "Master's Degree (MEd)",
       "startDate": "1998-01-01",
       "endDate": "2003-01-01"
     }
   ],
-  "awards": [],
   "certificates": [
     {
       "name": "Official PostgreSQL Contributor",
@@ -98,64 +119,25 @@
       "icon": "fa-brands fa-google"
     }
   ],
-  "publications": [],
-  "skills": [
-    {
-      "name": "Databases",
-      "keywords": ["PostgreSQL", "TimescaleDB", "Etcd", "MySQL", "MS Access"]
-    },
-    {
-      "name": "Programming Languages",
-      "keywords": ["SQL", "Go", "Python", "TypeScript", "Plain C", "Delphi/Pascal", "PHP", "JavaScript"]
-    },
-    {
-      "name": "DevOps & Infrastructure",
-      "keywords": ["Docker", "Kubernetes", "Git", "GitHub Actions", "Grafana", "Prometheus", "Patroni", "PgBouncer", "Pgpool2", "Bash", "PowerShell"]
-    },
-    {
-      "name": "Platforms",
-      "keywords": ["Linux", "Windows"]
-    }
-  ],
   "languages": [
     {
-      "language": "Ukrainian",
-      "fluency": "Native",
-      "icon": ""
-    },
-    {
       "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
+      "fluency": "Fluent"
     },
     {
-      "language": "Russian",
-      "fluency": "Fluent",
-      "icon": ""
-    }
-  ],
-  "interests": [
+      "language": "Ukrainian",
+      "fluency": "Native"
+    },
     {
-      "name": "Open Source",
-      "icon": "fa-brands fa-github",
-      "keywords": ["PostgreSQL", "Go", "Database Tools", "Community Building"]
+      "language": "Slovak",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "German",
+      "fluency": "Basic"
     }
   ],
-  "references": [],
   "projects": [
-    {
-      "name": "pg_timetable",
-      "description": "Advanced PostgreSQL job scheduler with support for SQL commands and system operations.",
-      "highlights": [
-        "Fully database-driven design.",
-        "Superior to cron for PostgreSQL-related workflows.",
-        "Supports parallel and conditional job chains."
-      ],
-      "keywords": ["PostgreSQL", "Job Scheduling", "Go", "Automation"],
-      "startDate": "2020-01-01",
-      "url": "https://github.com/cybertec-postgresql/pg_timetable",
-      "roles": ["Developer", "Maintainer"]
-    },
     {
       "name": "pgwatch",
       "description": "Non-invasive PostgreSQL monitoring tool with Grafana dashboards and multi-environment support.",
@@ -164,10 +146,74 @@
         "Supports AWS RDS, PgBouncer, Pgpool2, and Patroni.",
         "Metrics stored in PostgreSQL, TimescaleDB, or Prometheus."
       ],
-      "keywords": ["PostgreSQL", "Monitoring", "Grafana", "Prometheus", "Go"],
+      "keywords": ["PostgreSQL", "Monitoring", "Grafana", "Prometheus", "TimescaleDB"],
       "startDate": "2023-01-01",
-      "url": "https://github.com/cybertec-postgresql/pgwatch",
+      "url": "https://github.com/cybertec-postgresql/pgwatch3",
       "roles": ["Developer", "Maintainer"]
+    },
+    {
+      "name": "pg_timetable",
+      "description": "Advanced PostgreSQL job scheduler with support for SQL commands and system operations.",
+      "highlights": [
+        "Fully database-driven design.",
+        "Superior to cron for PostgreSQL-related workflows.",
+        "Supports parallel and conditional job chains."
+      ],
+      "keywords": ["PostgreSQL", "Job Scheduling", "Automation"],
+      "startDate": "2020-01-01",
+      "url": "https://github.com/cybertec-postgresql/pg_timetable",
+      "roles": ["Developer", "Maintainer"]
+    },
+    {
+      "name": "Patroni for Windows",
+      "description": "Port of the high-availability PostgreSQL tool Patroni to Windows.",
+      "highlights": [
+        "Adapted core functionality to support Windows environments.",
+        "Enabled high-availability clusters on Windows-based infrastructure."
+      ],
+      "keywords": ["PostgreSQL", "High Availability", "Windows", "Patroni"],
+      "startDate": "2018-01-01",
+      "url": "https://github.com/pashagolub/patroni",
+      "roles": ["Developer"]
+    },
+    {
+      "name": "vip-manager",
+      "description": "Cross-platform VIP manager for PostgreSQL HA setups.",
+      "highlights": ["Automates virtual IP management for failover.", "Improves availability and recovery times in HA clusters."],
+      "keywords": ["PostgreSQL", "HA", "Networking", "VIP"],
+      "startDate": "2020-01-01",
+      "url": "https://github.com/cybertec-postgresql/vip-manager",
+      "roles": ["Developer"]
+    },
+    {
+      "name": "MicroOLAP Database Designer for PostgreSQL",
+      "description": "Visual tool for designing and managing PostgreSQL database schemas.",
+      "highlights": ["Support for reverse engineering.", "Graphical modeling of tables, views, and relationships."],
+      "keywords": ["PostgreSQL", "Database Design", "Modeling", "Reverse Engineering"],
+      "startDate": "2013-01-01",
+      "endDate": "2018-01-01",
+      "url": "https://www.microolap.com/products/database/postgresql-designer/",
+      "roles": ["Lead Developer"]
+    },
+    {
+      "name": "PostgresDAC",
+      "description": "Delphi/C++ Builder components for direct access to PostgreSQL databases.",
+      "highlights": ["Streamlined integration with Delphi-based applications.", "Supported a wide range of PostgreSQL versions."],
+      "keywords": ["PostgreSQL", "Delphi", "C++Builder", "Components"],
+      "startDate": "2008-01-01",
+      "endDate": "2018-01-01",
+      "url": "https://www.microolap.com/products/connectivity/postgresdac/",
+      "roles": ["Developer"]
+    },
+    {
+      "name": "PaGoDump & PaGoRestore",
+      "description": "Portable GUI tools for PostgreSQL backup and restore.",
+      "highlights": ["Full support for pg_dump/pg_restore options.", "Portable and Unicode-enabled Windows applications."],
+      "keywords": ["PostgreSQL", "Backup", "Restore", "GUI"],
+      "startDate": "2008-01-01",
+      "endDate": "2018-01-01",
+      "url": "https://www.microolap.com/products/database/pagodump/",
+      "roles": ["Author"]
     },
     {
       "name": "pgxmock",
@@ -179,17 +225,8 @@
       "roles": ["Author", "Maintainer"]
     },
     {
-      "name": "vip-manager",
-      "description": "Tool for managing Virtual IP addresses for PostgreSQL high-availability clusters.",
-      "highlights": ["Integrates with Patroni and other HA solutions.", "Supports etcd, Consul, and Kubernetes for leader election."],
-      "keywords": ["PostgreSQL", "High Availability", "Go", "Patroni"],
-      "startDate": "2018-01-01",
-      "url": "https://github.com/cybertec-postgresql/vip-manager",
-      "roles": ["Developer", "Maintainer"]
-    },
-    {
       "name": "pgcov",
-      "description": "PostgreSQL PL/pgSQL code coverage tool — tracks which lines of stored procedures and functions are executed during tests.",
+      "description": "PostgreSQL PL/pgSQL code coverage tool.",
       "highlights": ["Integrates with standard PostgreSQL test workflows.", "Helps identify untested code paths in PL/pgSQL functions."],
       "keywords": ["PostgreSQL", "PL/pgSQL", "Code Coverage", "Testing"],
       "startDate": "2022-01-01",
@@ -203,15 +240,6 @@
       "keywords": ["Go", "Conference", "Scheduling"],
       "startDate": "2023-01-01",
       "url": "https://github.com/pashagolub/confelo",
-      "roles": ["Author", "Maintainer"]
-    },
-    {
-      "name": "postgresdac",
-      "description": "Delphi/Pascal data access components for PostgreSQL — native connectivity for RAD Studio and Lazarus applications.",
-      "highlights": ["Native PostgreSQL connectivity without ODBC.", "Supports Delphi, C++ Builder, and Lazarus/FreePascal."],
-      "keywords": ["PostgreSQL", "Delphi", "Pascal", "Data Access Components"],
-      "startDate": "2005-01-01",
-      "url": "https://github.com/pashagolub/postgresdac",
       "roles": ["Author", "Maintainer"]
     }
   ]
